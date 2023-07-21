@@ -7,6 +7,7 @@ const usersRouter = require("./routes/routers_users");
 const postsRouter = require("./routes/routers_posts");
 const commentsRouter = require("./routes/routers_comments");
 const likesRouter = require("./routes/routers_likes");
+const messageRouter = require("./routes/routers_likes");
 
 var app = express();
 mongoose.set("strictQuery", false);
@@ -21,6 +22,7 @@ app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use("/comments", commentsRouter);
 app.use("/likes", likesRouter);
+app.use("/messages", messageRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
