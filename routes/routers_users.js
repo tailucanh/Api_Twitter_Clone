@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
       message: "Please enter a password of more than 6 characters.",
     });
   } else {
-    const userLogin = await UserModal.findOne({ email });
+    const userLogin = await UserModel.findOne({ email });
 
     if (!userLogin) {
       res.status(400).json({
