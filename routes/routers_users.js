@@ -88,6 +88,21 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/loginWithId", async (req, res) => {
+  const userId = req.body.userId;
+  const userLogin = await UserModel.findOne({ _id: userId });
+
+  if (!userLogin) {
+    res.status(400).json({
+      message:
+        "Account does not exist. Please register if you do not have an account.",
+    });
+  } else {
+    res.status(200).json({
+      message: "Successful login.",
+    });
+  }
+});
 //Get all Method
 router.get("/getAll", async (req, res) => {
   33;
