@@ -90,7 +90,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/loginWithId", async (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.params.id;
   const userLogin = await UserModel.findOne({ _id: userId });
 
   if (!userLogin) {
