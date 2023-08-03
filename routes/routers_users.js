@@ -48,7 +48,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email) {
     res.status(400).json({
