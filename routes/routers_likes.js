@@ -17,7 +17,7 @@ router.post("/post", async (req, res) => {
 router.get("/getAll", async (req, res) => {
   33;
   try {
-    const data = await LikeModel.find();
+    const data = await LikeModel.find({ postId: req.params.id });
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });

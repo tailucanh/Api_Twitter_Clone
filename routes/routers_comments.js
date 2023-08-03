@@ -15,7 +15,6 @@ router.post("/post", async (req, res) => {
 
 //Get all Method
 router.get("/getAll", async (req, res) => {
-  33;
   try {
     const data = await CommentModel.find();
     res.json(data);
@@ -25,9 +24,9 @@ router.get("/getAll", async (req, res) => {
 });
 
 //Get by ID Method
-router.get("/getOne/:id", async (req, res) => {
+router.get("/getComments/:id", async (req, res) => {
   try {
-    const data = await CommentModel.findById(req.params.id);
+    const data = await CommentModel.find({ postId: req.params.id });
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
