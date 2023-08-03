@@ -80,6 +80,7 @@ router.post("/login", async (req, res) => {
           message: "Password is wrong, please check again.",
         });
       } else {
+        res.json(userLogin);
         res.status(200).json({
           message: "Successful login.",
         });
@@ -98,6 +99,7 @@ router.post("/loginWithId", async (req, res) => {
         "Account does not exist. Please register if you do not have an account.",
     });
   } else {
+    res.json(userLogin);
     res.status(200).json({
       message: "Successful login.",
     });
