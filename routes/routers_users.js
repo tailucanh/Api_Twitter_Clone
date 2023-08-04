@@ -89,9 +89,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/loginWithId", async (req, res) => {
-  const userId = req.body.userId;
-  const userLogin = await UserModel.findOne({ _id: userId });
+router.post("/loginWithId/:id", async (req, res) => {
+  const userId = req.params.id;
+  const userLogin = await UserModel.findOne(userId);
 
   if (!userLogin) {
     res.status(400).json({
